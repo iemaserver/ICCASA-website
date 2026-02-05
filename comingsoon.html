@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | ICCASA 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0a0e27; /* Darker Deep Blue */
+            --secondary-color: #ff6f00; /* Gold */
+            --accent-color: #00e5ff; /* Cyan */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--primary-color);
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* --- 1. BACKGROUND CANVAS --- */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* --- 2. GLASS CONTAINER --- */
+        .container {
+            position: relative;
+            z-index: 2;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Branding Badge */
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 111, 0, 0.1);
+            color: var(--secondary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 111, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        /* --- 3. THE GYROSCOPE LOADER --- */
+        .gyro-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+        }
+
+        .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+        }
+
+        .ring-1 {
+            width: 100%; height: 100%;
+            border-top: 3px solid var(--accent-color);
+            animation: spin 2s linear infinite;
+        }
+
+        .ring-2 {
+            width: 80%; height: 80%;
+            top: 10%; left: 10%;
+            border-right: 3px solid var(--secondary-color);
+            animation: spinReverse 3s linear infinite;
+        }
+
+        .ring-3 {
+            width: 60%; height: 60%;
+            top: 20%; left: 20%;
+            border-bottom: 3px solid #fff;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .core {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px; height: 15px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-color);
+            animation: pulse 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinReverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+        @keyframes pulse { 0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; } 100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; } }
+
+        /* --- 4. TERMINAL TEXT --- */
+        .status-wrapper {
+            font-family: 'Courier New', monospace;
+            color: var(--accent-color);
+            font-size: 1rem;
+            height: 1.5rem; /* Fixed height to prevent jumping */
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1rem;
+            background: var(--secondary-color);
+            animation: blink 0.8s infinite;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* --- 5. BUTTON & LINK --- */
+        .notify-btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            border: 1px solid var(--secondary-color);
+            background: transparent;
+            color: var(--secondary-color);
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .notify-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            box-shadow: 0 0 30px rgba(255, 111, 0, 0.4);
+        }
+
+        .home-link {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .home-link:hover { color: #fff; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .container { padding: 2rem; }
+            h1 { font-size: 2rem; }
+            .gyro-container { width: 90px; height: 90px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="container">
+        <div class="logo-badge">
+            <i class="fa-solid fa-server"></i> &nbsp; System Upgrade
+        </div>
+        
+        <h1>Something Extraordinary<br>Is Loading...</h1>
+        <p class="subtitle">We are finalizing the platform for ICCASA 2026.</p>
+
+        <div class="gyro-container">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+            <div class="core"></div>
+        </div>
+
+        <div class="status-wrapper">
+            <span id="typewriter"></span><span class="cursor"></span>
+        </div>
+
+        <button class="notify-btn" onclick="alert('You have been added to the priority list!')">Get Notified When Live</button>
+        <a href="index.html" class="home-link">Return to Home</a>
+    </div>
+
+    <script>
+        /* --- 1. TYPEWRITER EFFECT FOR STATUS --- */
+        const textElement = document.getElementById('typewriter');
+        // The list of "fake" technical tasks
+        const phrases = [
+            "Calibrating Neural Networks...",
+            "Indexing Research Papers...",
+            "Securing Peer Review Data...",
+            "Optimizing User Interface...",
+            "Establishing Server Uplink...",
+            "Initializing Launch Protocols..."
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                // Remove char
+                textElement.innerText = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50; // Delete faster
+            } else {
+                // Add char
+                textElement.innerText = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100; // Type normal
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                // Finished typing phrase, pause before deleting
+                isDeleting = true;
+                typeSpeed = 2000; 
+            } else if (isDeleting && charIndex === 0) {
+                // Finished deleting, move to next phrase
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start typing
+        document.addEventListener('DOMContentLoaded', type);
+
+
+        /* --- 2. PARTICLE BACKGROUND (Same tech, tweaked physics) --- */
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; // Slower, more elegant movement
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2;
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if(this.x < 0) this.x = width;
+                if(this.x > width) this.x = 0;
+                if(this.y < 0) this.y = height;
+                if(this.y > height) this.y = 0;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 229, 255, ${this.alpha})`; // Cyan particles
+                ctx.fill();
+            }
+        }
+
+        // Create particles
+        for(let i=0; i<80; i++) particles.push(new Particle());
+
+        // Connect particles
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for(let i=0; i<particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Draw lines to nearby particles
+                for(let j=i; j<particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if(dist < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist/1000})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
