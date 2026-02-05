@@ -570,9 +570,8 @@ ul { list-style: none; }
     .cta-group { flex-direction: column; width: 100%; padding: 0 40px; }
     .btn { width: 100%; text-align: center; }
 }
-/* --- ADD/UPDATE THIS IN YOUR CSS FILE --- */
 
-/* 1. Improved Header Layout for Mobile (Add to top or update existing .branding-container) */
+/* 1. Improved Header Layout for Mobile */
 .branding-container {
     display: flex;
     justify-content: space-between;
@@ -590,7 +589,7 @@ ul { list-style: none; }
     flex-shrink: 0; /* Prevents logos from squishing too much */
 }
 
-/* 2. ENHANCED MEDIA QUERIES (Replace the bottom section of your CSS) */
+/* 2. ENHANCED MEDIA QUERIES */
 
 /* --- Tablet View (Max Width: 992px) --- */
 @media (max-width: 992px) {
@@ -753,138 +752,6 @@ ul { list-style: none; }
 body.no-scroll {
     overflow: hidden;
 }
-/* --- COMING SOON MODAL STYLES --- */
-.cs-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(13, 17, 23, 0.85); /* Dark dimmed background */
-    backdrop-filter: blur(8px); /* Blur the site behind it */
-    z-index: 2000; /* Sit on top of everything including navbar */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.cs-modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.cs-modal-content {
-    background: rgba(255, 255, 255, 0.9);
-    width: 90%;
-    max-width: 400px;
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    transform: scale(0.8) translateY(20px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
-}
-
-.cs-modal-overlay.active .cs-modal-content {
-    transform: scale(1) translateY(0);
-}
-
-/* Close "X" Button */
-.cs-close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #888;
-    transition: 0.3s;
-}
-
-.cs-close-btn:hover {
-    color: var(--secondary-color);
-    transform: rotate(90deg);
-}
-
-/* Icon Animation */
-.cs-icon-wrapper {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cs-floating-icon {
-    font-size: 3rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: float 3s ease-in-out infinite;
-    z-index: 2;
-}
-
-.cs-pulse {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--accent-color);
-    border-radius: 50%;
-    opacity: 0.2;
-    z-index: 1;
-    animation: pulse 2s infinite;
-}
-
-/* Typography */
-.cs-title {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.cs-text {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-/* Button */
-.cs-ack-btn {
-    padding: 10px 30px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.cs-ack-btn:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Keyframe Animations */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.8); opacity: 0.5; }
-    100% { transform: scale(1.5); opacity: 0; }
-}
-
 
 /* ================= COMMON ================= */
 
@@ -1183,7 +1050,7 @@ body.no-scroll {
     .team-role {
         width: 100%;
     }
-
+}
 
 
 /* Thrust Areas List */
@@ -1210,5 +1077,4 @@ body.no-scroll {
 .page-content {
   margin-top: 60px;   /* Adjust as needed */
   padding: 20px;
-
 }
