@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.classList.toggle('no-scroll'); // Prevents background scrolling
+            document.body.classList.toggle('no-scroll');
         });
     }
 
@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* --- 2. Hero Slideshow Logic --- */
+    /* --- 2. Hero Slideshow Logic (Only runs if slides exist) --- */
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
+    const slideInterval = 5000; 
 
     const nextSlide = () => {
         if(slides.length === 0) return;
@@ -41,21 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
     /* --- 3. Navbar Scroll Effect --- */
     const navbar = document.getElementById('navbar');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    if(navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
     /* --- 4. Smooth Scroll for Anchor Links (e.g. #hero) --- */
+    // This allows normal links to work, but smooth scrolls for #ID links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Only scroll if it's a valid ID on this page
             const targetId = this.getAttribute('href');
             if(targetId !== '#' && document.querySelector(targetId)) {
-                e.preventDefault();
+                e.preventDefault(); // Only prevent default for internal anchors
                 document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
