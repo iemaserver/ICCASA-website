@@ -3,32 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICCASA 2025 | UEM Jaipur</title>
+    <title>ICCASA 2026 | UEM Jaipur</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- HEADER IMPROVEMENTS --- */
+        .top-header {
+            background: #ffffff;
+            padding: 10px 0;
+            border-bottom: 1px solid #eaeaea;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Soft premium shadow */
+        }
+
+        .branding-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1; /* Balances the three sections */
+        }
+
+        .logo-group.left { justify-content: flex-start; }
+        .logo-group.right { justify-content: flex-end; }
+
+        /* Logo Images */
+        .header-logo {
+            width: auto;
+            display: block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05); /* Interactive pop effect */
+        }
+
+        /* Specific sizing to make them look balanced */
+        .uem-img { max-height: 65px; }
+        .iccasa-img { max-height: 85px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+
+        /* Scopus Badge Styling */
+        .scopus-badge {
+            background: #f58220; /* Official Scopus Orange */
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 8px 18px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(245, 130, 32, 0.3);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .scopus-badge i { font-size: 1.1em; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .branding-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .logo-group {
+                justify-content: center !important; /* Center everything on mobile */
+                width: 100%;
+            }
+
+            .logo-group.center {
+                order: -1; /* Put ICCASA logo at the very top */
+                margin-bottom: 5px;
+            }
+
+            .uem-img { max-height: 50px; }
+            .iccasa-img { max-height: 70px; }
+        }
+    </style>
 </head>
 <body>
 
     <header class="top-header">
         <div class="container branding-container">
+            
             <div class="logo-group left">
-                <div class="logo-placeholder uem-logo">
-                    <i class="fa-solid fa-university"></i> UEM JAIPUR
-                </div>
+                <a href="index.html">
+                    <img src="assets/images/UEM-removebg-preview.png" alt="UEM Jaipur" class="header-logo uem-img">
+                </a>
             </div>
             
             <div class="logo-group center">
-                <div class="logo-placeholder conf-logo">
-                    <i class="fa-solid fa-globe"></i> ICCASA 2026
-                </div>
+                <a href="index.html">
+                    <img src="assets/images/iccasa-removebg-preview.png" alt="ICCASA 2026" class="header-logo iccasa-img">
+                </a>
             </div>
 
             <div class="logo-group right">
-                <div class="logo-placeholder publisher-logo">
-                    AIP Publishing
-                </div>
-                <div class="logo-placeholder publisher-logo">
-                    SCOPUS
+                <div class="scopus-badge">
+                    <i class="fa-solid fa-layer-group"></i> SCOPUS
                 </div>
             </div>
         </div>
@@ -43,11 +124,11 @@
                 <li class="nav-item"><a href="scope.html" class="nav-link">Scope</a></li>
                 <li class="nav-item"><a href="speakers.html" class="nav-link">Keynote Speaker</a></li>
                 <li class="nav-item"><a href="team.html" class="nav-link">Organizing Team</a></li>
-                <li class="nav-item"><a href="cfp.html" class="nav-link">Call for Paper</a></li>
-                <li class="nav-item"><a href="registration.html" class="nav-link">Registration</a></li>
-                <li class="nav-item"><a href="publication.html" class="nav-link">Publication</a></li>
-                <li class="nav-item"><a href="conferences.html" class="nav-link">Conferences</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="comingsoon.html" class="nav-link">Call for Paper</a></li>
+                <li class="nav-item"><a href="comingsoon.html" class="nav-link">Registration</a></li>
+                <li class="nav-item"><a href="comingsoon.html" class="nav-link">Publication</a></li>
+                <li class="nav-item"><a href="comingsoon.html" class="nav-link">Conferences</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -72,7 +153,7 @@
         <div class="hero-content">
             <h4 class="animate-text delay-1">University of Engineering & Management, Jaipur</h4>
             <h1 class="animate-text delay-2 gradient-text">ICCASA 2026</h1>
-            <p class="subtitle animate-text delay-3">4th International Conference on Computational Applied Sciences and Its Applications</p>
+            <p class="subtitle animate-text delay-3">4th International Conference on Computational Applied Sciences and their Applications</p>
             
             <div class="event-details animate-text delay-4">
                 <span><i class="fa-regular fa-calendar"></i>  25-26 September 2026</span>
@@ -81,8 +162,8 @@
             </div>
 
             <div class="cta-group animate-text delay-5">
-                <a href="cfp.html" class="btn btn-primary">Call for Papers <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="registration.html" class="btn btn-secondary">Register Now</a>
+                <a href="comingsoon.html" class="btn btn-primary">Call for Papers <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="comingsoon.html" class="btn btn-secondary">Register Now</a>
             </div>
         </div>
     </section>
@@ -96,7 +177,7 @@
             <div class="content-wrapper">
                 <div class="text-block glass-card">
                     <p>
-                        The <strong>3rd International Conference on Computational Applied Sciences and Its Applications (ICCASA 2025)</strong> aims to bring together leading academic scientists, researchers, and research scholars to exchange and share their experiences and research results on all aspects of Computational Sciences. 
+                        The <strong>4th International Conference on Computational Applied Sciences and their Applications (ICCASA 2026)</strong> aims to bring together leading academic scientists, researchers, and research scholars to exchange and share their experiences and research results on all aspects of Computational Sciences. 
                     </p>
                     <p>
                         It also provides a premier interdisciplinary platform for researchers, practitioners, and educators to present and discuss the most recent innovations, trends, and concerns as well as practical challenges encountered and solutions adopted in the fields of Applied Sciences and Engineering.
@@ -171,7 +252,7 @@
         </div>
     </section>
 
-    <footer class="main-footer">
+    <footer class="main-footer" id="contact">
         <div class="container footer-content">
             <div class="footer-col">
                 <h3>ICCASA 2026</h3>
@@ -202,25 +283,8 @@
             <p>&copy; 2026 ICCASA - UEM Jaipur. All Rights Reserved.</p>
         </div>
     </footer>
-    <div id="cs-modal" class="cs-modal-overlay">
-    <div class="cs-modal-content">
-        <button class="cs-close-btn">&times;</button>
-        <div class="cs-icon-wrapper">
-            <i class="fa-solid fa-rocket cs-floating-icon"></i>
-            <div class="cs-pulse"></div>
-        </div>
-        <h2 class="cs-title">Launching Soon!</h2>
-        <p class="cs-text">
-            This page is currently undergoing <span class="highlight">peer review</span>. 
-            <br>We are compiling the data. Check back shortly!
-        </p>
-        <button class="cs-ack-btn">Understood</button>
-    </div>
-    </div>
 
-    <script src="script.js"></script>
+    
+    <script src="script.js?v=2"></script>
 </body>
 </html>
-
-
-
