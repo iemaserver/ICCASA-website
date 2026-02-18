@@ -250,7 +250,7 @@
             line-height: 1.4;
         }
 
-        /* --- 6. THINK TANK CARDS --- */
+        /* --- 6. THINK TANK CARDS (Resized Images) --- */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -276,16 +276,18 @@
 
         .team-img {
             width: 100%;
-            height: 280px;
+            height: 200px; /* Reduced from 280px to fix blur/proportion */
             overflow: hidden;
             position: relative;
+            background-color: #f9f9f9; /* Subtle background for transparency/padding */
+            padding-top: 15px; /* Slight padding so heads aren't cut off */
         }
 
         .team-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: top;
+            object-fit: contain; /* Changed from cover to contain to fix blur/zoom */
+            object-position: center;
             transition: transform 0.5s ease;
         }
 
@@ -393,7 +395,7 @@
                     <i class="fa-solid fa-university"></i> UEM JAIPUR
                 </div>
             </div>
-
+            
             <div class="logo-group center">
                 <div class="logo-placeholder conf-logo">
                     <i class="fa-solid fa-globe"></i> ICCASA 2026
@@ -410,7 +412,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="nav-brand-mobile">ICCASA '26</div>
-
+            
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="scope.html" class="nav-link">Scope</a></li>
@@ -597,7 +599,7 @@
 
                 <div class="team-card">
                     <div class="team-img">
-                        <img src="https://ik.imagekit.io/keshav5173/organizing_Team_2024/biswajoy.jpeg?updatedAt=1751267191177" alt="Prof.(Dr.) Biswajoy Chatterjee">
+                        <img src="https://media.uem.edu.in/uploads/sites/3/2024/07/VC-Pic.jpeg" alt="Prof.(Dr.) Biswajoy Chatterjee">
                     </div>
                     <div class="team-info">
                         <h3>Prof.(Dr.) Biswajoy Chatterjee</h3>
@@ -608,7 +610,7 @@
 
                 <div class="team-card">
                     <div class="team-img">
-                        <img src="https://ik.imagekit.io/keshav5173/organizing_Team_2024/pradeepKrSharma.webp?updatedAt=1751267191245" alt="Prof.(Dr.) Pradeep Kr. Sharma">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFXiSJOMKlJGQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1691333574403?e=1773273600&v=beta&t=keEnkb19gRq12Qoz2aKjpslUX6mkvT1e_CMI2cStmqI" alt="Prof.(Dr.) Pradeep Kr. Sharma">
                     </div>
                     <div class="team-info">
                         <h3>Prof.(Dr.) Pradeep Kr. Sharma</h3>
@@ -624,30 +626,22 @@
     <section class="team-section">
         <div class="container">
 
-            <h2 class="team-heading">Conveners</h2>
+            <h2 class="team-heading">Organizing Team</h2>
             <div class="team-table">
+                
                 <div class="team-row">
                     <div class="team-name">Dr. Praphull Chhabra</div>
-                    <div class="team-role">Professor (Department of Mathematics) UEM Jaipur.</div>
+                    <div class="team-role">Professor (Department of Mathematics) UEM Jaipur</div>
                 </div>
+
                 <div class="team-row">
                     <div class="team-name">Dr. Tarun Sharma</div>
-                    <div class="team-role">Associate Professor (Department of Mathematics) UEM Jaipur</div>
+                    <div class="team-role">Professor (Department of Mathematics) UEM Jaipur</div>
                 </div>
-            </div>
-
-            <div style="height: 40px;"></div> <h2 class="team-heading">Co-Convener</h2>
-            <div class="team-table">
                 <div class="team-row">
                     <div class="team-name">Dr. Arnab Palui</div>
-                    <div class="team-role">Associate Professor (Department of Physics) UEM Jaipur.</div>
+                    <div class="team-role">Associate Professor (Department of Physics) UEM Jaipur</div>
                 </div>
-            </div>
-
-            <div style="height: 40px;"></div>
-
-            <h2 class="team-heading">Organising Team</h2>
-            <div class="team-table">
                 <div class="team-row">
                     <div class="team-name">Dr. Rahul Sharma</div>
                     <div class="team-role">Associate Professor (Department of Mathematics) UEM Jaipur</div>
@@ -656,10 +650,12 @@
                     <div class="team-name">Dr. Anamika Khaskel</div>
                     <div class="team-role">Associate Professor (Department of Chemistry) UEM Jaipur</div>
                 </div>
+
                 <div class="team-row">
                     <div class="team-name">Dr. Pallavi Malik</div>
-                    <div class="team-role">Assistant Professor (Department of Mathematics) UEM Jaipur</div>
+                    <div class="team-role">Associate Professor (Department of Mathematics) UEM Jaipur</div>
                 </div>
+
                 <div class="team-row">
                     <div class="team-name">Mr. Manish Kumar Jangir</div>
                     <div class="team-role">Lab Technician (Department of Physics) UEM Jaipur</div>
@@ -668,6 +664,7 @@
                     <div class="team-name">Mr. Kamal Kishor Kumawat</div>
                     <div class="team-role">Lab Technician (Department of Chemistry) UEM Jaipur</div>
                 </div>
+
                 <div class="team-row">
                     <div class="team-name">Ms. Sonam Chhabra</div>
                     <div class="team-role">Research Scholar (Department of Mathematics) UEM Jaipur</div>
@@ -703,16 +700,16 @@
             <h2 class="team-heading">Technical & Support Team</h2>
             <div class="team-table">
                 <div class="team-row">
-                    <div class="team-name">Mr. Biswanath Mukherjee</div>
-                    <div class="team-role">Student Coordinator (CSE 4th Year) UEM Jaipur</div>
+                    <div class="team-name">Mr. Soham Roy</div>
+                    <div class="team-role">Student Coordinator (CSE 3rd Year) UEM Jaipur</div>
                 </div>
                 <div class="team-row">
-                    <div class="team-name">Mr. Keshav Bhardwaj</div>
-                    <div class="team-role">Student Coordinator (CSE AIML 3rd Year) UEM Jaipur</div>
+                    <div class="team-name">Mr. Novance Patel</div>
+                    <div class="team-role">Student Coordinator (CSE 3rd Year) UEM Jaipur</div>
                 </div>
                 <div class="team-row">
-                    <div class="team-name">Mr. Anubhav Gupta</div>
-                    <div class="team-role">Student Coordinator (CSE AIML 3rd Year) UEM Jaipur</div>
+                    <div class="team-name">Mr. Purnagya Raj</div>
+                    <div class="team-role">Student Coordinator (CSE 3rd Year) UEM Jaipur</div>
                 </div>
                 <div class="team-row">
                     <div class="team-name">Mr. Bhim Lama</div>
@@ -721,28 +718,6 @@
                 <div class="team-row">
                     <div class="team-name">Mr. Shyam Lal Jaat</div>
                     <div class="team-role">Technician UEM Jaipur</div>
-                </div>
-            </div>
-
-            <div style="height: 60px;"></div>
-
-            <h2 class="team-heading">Contact For Help</h2>
-            <div class="team-table">
-                <div class="team-row">
-                    <div class="team-name"><i class="fa-solid fa-file-circle-check"></i> Abstract & Submission</div>
-                    <div class="team-role">Dr. Arnab Palui | +91-9007598758</div>
-                </div>
-                <div class="team-row">
-                    <div class="team-name"><i class="fa-solid fa-credit-card"></i> Payment Issues</div>
-                    <div class="team-role">Dr. Tarun Sharma | +91-9024424325</div>
-                </div>
-                <div class="team-row">
-                    <div class="team-name"><i class="fa-solid fa-id-card"></i> Registration Issues</div>
-                    <div class="team-role">Dr. Pallavi Malik | +91-9799474109</div>
-                </div>
-                <div class="team-row">
-                    <div class="team-name"><i class="fa-solid fa-book"></i> Publication Issues</div>
-                    <div class="team-role">Dr. Praphull Chhabra | +91-9783372873</div>
                 </div>
             </div>
 
@@ -756,6 +731,7 @@
                 <p>University of Engineering & Management, Jaipur</p>
                 <p>Gurukul, Udaipuria Mod, NH-11, Jaipur, Rajasthan 303807</p>
             </div>
+            
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
@@ -764,11 +740,12 @@
                     <li><a href="contact.html">Contact Convener</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h3>Connect With Us</h3>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/uemjpr?mibextid=qi2Omg&rdid=fNYy60BOy2Hml37G&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FhDUSwy3Nv24Q7QTN%2F%3Fmibextid%3Dqi2Omg#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://x.com/Jaipur_Uem"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://x.com/Jaipur_Uem"><i class="fa-brands fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/school/university-of-engineering-management-uem/"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="mailto:iccasa@uem.edu.in"><i class="fa-solid fa-envelope"></i></a>
                 </div>
@@ -793,6 +770,7 @@
                 });
             }
 
+            // Close menu when a link is clicked
             document.querySelectorAll(".nav-link").forEach((n) =>
                 n.addEventListener("click", () => {
                     hamburger.classList.remove("active");
