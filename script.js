@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
             { href: 'comingsoon.html', label: 'Call for Paper' },
             { href: 'comingsoon.html', label: 'Registration' },
             { href: 'comingsoon.html', label: 'Publication' },
-            { href: 'comingsoon.html', label: 'Conferences' },
             { href: '#contact', label: 'Contact Us' }
         ];
 
