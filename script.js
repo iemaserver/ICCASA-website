@@ -72,7 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (footerSlot) {
         fetch('footer.html')
             .then(res => res.text())
-            .then(html => { footerSlot.innerHTML = html; })
+            .then(html => {
+                footerSlot.innerHTML = html;
+
+                // Fix homepage #contact scroll timing issue
+                if (window.location.hash === "#contact") {
+                    const contactSection = document.getElementById("contact");
+                    if (contactSection) {
+                        setTimeout(() => {
+                            contactSection.scrollIntoView({ behavior: "smooth" });
+                        }, 100);
+                    }
+                }
+            }) 
             .catch(() => {
                 // Inline fallback if fetch fails (e.g., file:// protocol)
                 footerSlot.innerHTML = `
