@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const navLinks = navItems.map(item => {
             const isActive = (currentPage === item.href) ? ' active' : '';
-            return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}" target="_blank">${item.label}</a></li>`;
+            return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}">${item.label}</a></li>`;
         }).join('\n                    ');
 
         navSlot.innerHTML = `
