@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </header>`;
     }
 
-    // ── 3.  INJECT NAVBAR  ────────────────────────────────────
+// ── 3.  INJECT NAVBAR  ────────────────────────────────────
     const navSlot = document.getElementById('site-nav');
     if (navSlot) {
         const navItems = [
@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const navLinks = navItems.map(item => {
             const isActive = (currentPage === item.href) ? ' active' : '';
             
-            // FIX: Only add target="_blank" if the link does NOT start with '#'
-            const targetAttr = item.href.startsWith('#') ? '' : 'target="_blank"';
+            // FIX: Added rel="noopener noreferrer" for strict browser policies
+            const targetAttr = item.href.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"';
             
             return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}" ${targetAttr}>${item.label}</a></li>`;
         }).join('\n                    ');
