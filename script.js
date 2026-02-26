@@ -43,12 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
             { href: 'comingsoon.html', label: 'Call for Paper' },
             { href: 'comingsoon.html', label: 'Registration' },
             { href: 'comingsoon.html', label: 'Publication' },
+            { href: 'comingsoon.html', label: 'Conferences' },
             { href: '#contact', label: 'Contact Us' }
         ];
 
         const navLinks = navItems.map(item => {
             const isActive = (currentPage === item.href) ? ' active' : '';
-            return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}">${item.label}</a></li>`;
+            
+            // FIX: Only add target="_blank" if the link does NOT start with '#'
+            const targetAttr = item.href.startsWith('#') ? '' : 'target="_blank"';
+            
+            return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}" ${targetAttr}>${item.label}</a></li>`;
         }).join('\n                    ');
 
         navSlot.innerHTML = `
@@ -66,25 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </nav>`;
     }
-
     // ── 4.  INJECT FOOTER  ────────────────────────────────────
     const footerSlot = document.getElementById('site-footer');
     if (footerSlot) {
         fetch('footer.html')
             .then(res => res.text())
-            .then(html => {
-                footerSlot.innerHTML = html;
-
-                // Fix homepage #contact scroll timing issue
-                if (window.location.hash === "#contact") {
-                    const contactSection = document.getElementById("contact");
-                    if (contactSection) {
-                        setTimeout(() => {
-                            contactSection.scrollIntoView({ behavior: "smooth" });
-                        }, 100);
-                    }
-                }
-            }) 
+            .then(html => { footerSlot.innerHTML = html; })
             .catch(() => {
                 // Inline fallback if fetch fails (e.g., file:// protocol)
                 footerSlot.innerHTML = `
