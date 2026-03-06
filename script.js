@@ -3,14 +3,13 @@
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ── 1.  DETECT CURRENT PAGE  ──────────────────────────────
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-    // ── 1.  DETECT CURRENT PAGE  ──────────────────────────────
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-    // ── 2.  INJECT HEADER  ────────────────────────────────────
-    const headerSlot = document.getElementById('site-header');
-    if (headerSlot) {
-        headerSlot.innerHTML = `
+  // ── 2.  INJECT HEADER  ────────────────────────────────────
+  const headerSlot = document.getElementById("site-header");
+  if (headerSlot) {
+    headerSlot.innerHTML = `
         <header class="top-header">
             <div class="container branding-container">
                 <div class="logo-group left">
@@ -23,40 +22,44 @@ document.addEventListener("DOMContentLoaded", () => {
                         <img src="assets/images/iccasa-removebg-preview.png" alt="ICCASA 2026" class="header-logo iccasa-img">
                     </a>
                 </div>
-                <div class="logo-group right">
-                    <div class="scopus-badge">
-                        <i class="fa-solid fa-layer-group"></i> SCOPUS
-                    </div>
-                </div>
+               <div class="logo-group right">
+    <a href="index.html">
+        <img src="assets/images/image.png" alt="Jangjeon Mathematical Society" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain; margin-left:40%;">
+    </a>
+</div>
             </div>
         </header>`;
-    }
+  }
 
-// ── 3.  INJECT NAVBAR  ────────────────────────────────────
-    const navSlot = document.getElementById('site-nav');
-    if (navSlot) {
-        const navItems = [
-            { href: 'index.html', label: 'Home' },
-            { href: 'scope.html', label: 'Scope' },
-            { href: 'speakers.html', label: 'Keynote Speaker' },
-            { href: 'team.html', label: 'Organizing Team' },
-            { href: 'comingsoon.html', label: 'Call for Paper' },
-            { href: 'comingsoon.html', label: 'Registration' },
-            { href: 'comingsoon.html', label: 'Publication' },
-            { href: 'comingsoon.html', label: 'Conferences' },
-            { href: '#contact', label: 'Contact Us' }
-        ];
+  // ── 3.  INJECT NAVBAR  ────────────────────────────────────
+  const navSlot = document.getElementById("site-nav");
+  if (navSlot) {
+    const navItems = [
+      { href: "index.html", label: "Home" },
+      { href: "scope.html", label: "Scope" },
+      { href: "speakers.html", label: "Keynote Speaker" },
+      { href: "team.html", label: "Organizing Team" },
+      { href: "comingsoon.html", label: "Call for Paper" },
+      { href: "comingsoon.html", label: "Registration" },
+      { href: "publication.html", label: "Publication" },
 
-        const navLinks = navItems.map(item => {
-            const isActive = (currentPage === item.href) ? ' active' : '';
-            
-            // FIX: Added rel="noopener noreferrer" for strict browser policies
-            const targetAttr = item.href.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"';
-            
-            return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}" ${targetAttr}>${item.label}</a></li>`;
-        }).join('\n                    ');
+      { href: "#contact", label: "Contact Us" },
+    ];
 
-        navSlot.innerHTML = `
+    const navLinks = navItems
+      .map((item) => {
+        const isActive = currentPage === item.href ? " active" : "";
+
+        // FIX: Added rel="noopener noreferrer" for strict browser policies
+        const targetAttr = item.href.startsWith("#")
+          ? ""
+          : 'target="_blank" rel="noopener noreferrer"';
+
+        return `<li class="nav-item"><a href="${item.href}" class="nav-link${isActive}" ${targetAttr}>${item.label}</a></li>`;
+      })
+      .join("\n                    ");
+
+    navSlot.innerHTML = `
         <nav class="navbar" id="navbar">
             <div class="container nav-container">
                 <div class="nav-brand-mobile">ICCASA '26</div>
@@ -70,16 +73,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         </nav>`;
-    }
-    // ── 4.  INJECT FOOTER  ────────────────────────────────────
-    const footerSlot = document.getElementById('site-footer');
-    if (footerSlot) {
-        fetch('footer.html')
-            .then(res => res.text())
-            .then(html => { footerSlot.innerHTML = html; })
-            .catch(() => {
-                // Inline fallback if fetch fails (e.g., file:// protocol)
-                footerSlot.innerHTML = `
+  }
+  // ── 4.  INJECT FOOTER  ────────────────────────────────────
+  const footerSlot = document.getElementById("site-footer");
+  if (footerSlot) {
+    fetch("footer.html")
+      .then((res) => res.text())
+      .then((html) => {
+        footerSlot.innerHTML = html;
+      })
+      .catch(() => {
+        // Inline fallback if fetch fails (e.g., file:// protocol)
+        footerSlot.innerHTML = `
                 <footer class="main-footer" id="contact">
                     <div class="container footer-content">
                         <div class="footer-col">
@@ -113,71 +118,70 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p>&copy; 2026 ICCASA - UEM Jaipur. All Rights Reserved.</p>
                     </div>
                 </footer>`;
-            });
-    }
+      });
+  }
 
-    // ── 5.  MOBILE MENU TOGGLE  ───────────────────────────────
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+  // ── 5.  MOBILE MENU TOGGLE  ───────────────────────────────
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
 
-    function toggleMenu() {
-        if (!hamburger || !navMenu) return;
-        const isOpen = hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-        hamburger.setAttribute('aria-expanded', isOpen);
-    }
+  function toggleMenu() {
+    if (!hamburger || !navMenu) return;
+    const isOpen = hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    document.body.classList.toggle("no-scroll");
+    hamburger.setAttribute("aria-expanded", isOpen);
+  }
 
-    if (hamburger) {
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleMenu();
-            }
-        });
-    }
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (hamburger && hamburger.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
+  if (hamburger) {
+    hamburger.addEventListener("click", toggleMenu);
+    hamburger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleMenu();
+      }
     });
+  }
 
-    // ── 6.  NAVBAR SCROLL EFFECT  ─────────────────────────────
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
+  // Close menu when a link is clicked
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (hamburger && hamburger.classList.contains("active")) {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
+  // ── 6.  NAVBAR SCROLL EFFECT  ─────────────────────────────
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+          ticking = false;
         });
-    }
+        ticking = true;
+      }
+    });
+  }
 
-    // ── 7.  HERO SLIDESHOW (Safe)  ────────────────────────────
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length > 1) {
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000);
-    }
-
+  // ── 7.  HERO SLIDESHOW (Safe)  ────────────────────────────
+  const slides = document.querySelectorAll(".slide");
+  if (slides.length > 1) {
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 5000);
+  }
 });
