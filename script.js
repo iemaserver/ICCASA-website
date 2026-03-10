@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                <div class="logo-group right">
     <a href="index.html">
-        <img src="assets/images/image.png" alt="Jangjeon Mathematical Society" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain; margin-left:40%;">
+        <img src="assets/images/image.png" alt="Jangjeon Mathematical Society" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain;">
     </a>
 </div>
             </div>
@@ -185,3 +185,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 5000);
   }
 });
+
