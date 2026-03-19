@@ -6,31 +6,40 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── 1.  DETECT CURRENT PAGE  ──────────────────────────────
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-  // ── 2.  INJECT HEADER  ────────────────────────────────────
-  const headerSlot = document.getElementById("site-header");
-  if (headerSlot) {
-    headerSlot.innerHTML = `
+// ─// ── 2.  INJECT HEADER  ────────────────────────────────────
+    const headerSlot = document.getElementById("site-header");
+    if (headerSlot) {
+        headerSlot.innerHTML = `
         <header class="top-header">
-            <div class="container branding-container">
-                <div class="logo-group left">
+            <div class="container branding-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 15px;">
+                
+                <div class="logo-group left" style="display: flex; align-items: center;">
                     <a href="index.html">
                         <img src="assets/images/UEM-removebg-preview.png" alt="UEM Jaipur" class="header-logo uem-img">
                     </a>
                 </div>
-                <div class="logo-group center">
+                
+                <div class="logo-group center" style="display: flex; align-items: center; justify-content: center;">
                     <a href="index.html">
                         <img src="assets/images/iccasa-removebg-preview.png" alt="ICCASA 2026" class="header-logo iccasa-img">
                     </a>
                 </div>
-               <div class="logo-group right">
-    <a href="index.html">
-        <img src="assets/images/image.png" alt="Jangjeon Mathematical Society" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain;">
-    </a>
-</div>
+                
+                <div class="logo-group scopus-group" style="display: flex; align-items: center;">
+                    <div class="scopus-badge">
+                        <i class="fa-solid fa-layer-group"></i> SCOPUS
+                    </div>
+                </div>                
+                
+                <div class="logo-group jangjeon-group" style="display: flex; align-items: center; justify-content: flex-end;">
+                    <a href="index.html">
+                        <img src="assets/images/image.png" alt="Jangjeon Mathematical Society" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain;">
+                    </a>
+                </div>
+                
             </div>
         </header>`;
-  }
-
+    }
   // ── 3.  INJECT NAVBAR  ────────────────────────────────────
   const navSlot = document.getElementById("site-nav");
   if (navSlot) {
