@@ -1680,20 +1680,17 @@ body.no-scroll {
         font-size: 0.85rem;
     }
 
-    /* Make tables horizontally scrollable on small screens to avoid overflow */
-    .custom-table {
-        display: block;
-        width: 100%;
+    /* Make tables horizontally scrollable on small screens using a wrapper */
+    .table-responsive {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        width: 100%;
     }
 
-    .custom-table thead,
-    .custom-table tbody,
-    .custom-table tr {
-        display: table;
+    /* Ensure table keeps its column widths and becomes scrollable when too wide */
+    .custom-table {
         width: 100%;
-        table-layout: fixed;
+        min-width: 720px;
     }
     
     .bullet-heading {
