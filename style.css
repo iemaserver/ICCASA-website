@@ -1679,6 +1679,22 @@ body.no-scroll {
         padding: 10px;
         font-size: 0.85rem;
     }
+
+    /* Make tables horizontally scrollable on small screens to avoid overflow */
+    .custom-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .custom-table thead,
+    .custom-table tbody,
+    .custom-table tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
     
     .bullet-heading {
         font-size: 1.1rem;
