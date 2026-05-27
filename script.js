@@ -11,29 +11,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (headerSlot) {
         headerSlot.innerHTML = `
         <header class="top-header">
-            <div class="container branding-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 15px;">
+          <div class="container branding-container" style="display: flex; justify-content: space-evenly; align-items: center; width: 100%; flex-wrap: wrap; column-gap: 20px; row-gap: 12px;">
                 
-                <div class="logo-group left" style="display: flex; align-items: center;">
+            <div class="logo-group left" style="display: flex; flex: 1 1 160px; align-items: center; justify-content: center;">
                     <a href="index.html">
                         <img src="assets/images/UEM-removebg-preview.png" alt="UEM Jaipur" class="header-logo uem-img">
                     </a>
                 </div>
                 
-                <div class="logo-group center" style="display: flex; align-items: center; justify-content: center;">
+            <div class="logo-group center" style="display: flex; flex: 1 1 160px; align-items: center; justify-content: center;">
                     <a href="index.html">
                         <img src="assets/images/iccasa-removebg-preview.png" alt="ICCASA 2026" class="header-logo iccasa-img">
                     </a>
                 </div>
                 
-                <div class="logo-group scopus-group" style="display: flex; align-items: center;">
+            <div class="logo-group scopus-group" style="display: flex; flex: 1 1 160px; align-items: center; justify-content: center;">
                     <div class="scopus-badge">
                         <i class="fa-solid fa-layer-group"></i> SCOPUS
                     </div>
-                </div>                
+                </div>
+                                
                 
-                <div class="logo-group jangjeon-group" style="display: flex; align-items: center; justify-content: flex-end;">
+            <div class="logo-group jangjeon-group" style="display: flex; flex: 1 1 160px; align-items: center; justify-content: center;">
                     <a href="index.html">
                         <img src="assets/images/image.png" alt="Jangjeon Mathematical Society" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain;">
+                    </a>
+                </div>
+            <div class="logo-group AIP-Publishing" style="display: flex; flex: 1 1 160px; align-items: center; justify-content: center;">
+                    <a href="index.html">
+                        <img src="assets/images/AIP_logo.webp" alt="AIP Publishing" class="header-logo" style="max-height:60px; border-radius:6px; background:#fff; padding:4px 8px; box-shadow:0 1px 3px rgba(0,0,0,0.08); object-fit:contain;">
                     </a>
                 </div>
                 
