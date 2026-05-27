@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { href: "scope.html", label: "Scope" },
       { href: "speakers.html", label: "Keynote Speaker" },
       { href: "team.html", label: "Organizing Team" },
-      { href: "callforpapers.html", label: "Call for Paper" },
+      { href: "callforpapers.html", label: "Call for Papers" },
       { href: "comingsoon.html", label: "Registration" },
       { href: "publication.html", label: "Publication" },
 
