@@ -1,5 +1,5 @@
 /* ============================================================
-   ICCASA 2026 — Unified Stylesheet
+   ICCASA 2026 â€” Unified Stylesheet
    Sections:
      1. Variables & Reset
      2. Layout Utilities
@@ -1187,23 +1187,26 @@ body.no-scroll {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Header — keep logos in a single row */
+    /* Header - compact multi-logo layout on smaller screens */
     .top-header {
         padding: 8px 0;
     }
 
     .branding-container {
-        flex-wrap: nowrap;
-        gap: 10px;
-        padding: 8px 15px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px 10px;
+        padding: 8px 12px;
         align-items: center;
+        justify-items: center;
     }
 
     .logo-group.left,
     .logo-group.center,
     .logo-group.right {
-        flex: 1 1 0;
+        flex: none;
         min-width: 0;
+        width: 100%;
         justify-content: center;
     }
 
@@ -1212,17 +1215,24 @@ body.no-scroll {
     }
 
     .uem-img {
-        max-height: 45px;
+        max-height: 36px;
     }
 
     .iccasa-img {
-        max-height: 55px;
+        max-height: 42px;
     }
 
     .scopus-badge {
-        font-size: 0.7rem;
-        padding: 5px 10px;
-        letter-spacing: 0.5px;
+        width: 100%;
+        justify-content: center;
+        font-size: 0.65rem;
+        padding: 5px 8px;
+    }
+
+    .logo-group.jangjeon-group .header-logo,
+    .logo-group.AIP-Publishing .header-logo {
+        max-height: 42px;
+        padding: 3px 6px;
     }
 
     .scopus-badge i {
@@ -1294,21 +1304,28 @@ body.no-scroll {
     }
 
     .branding-container {
-        gap: 8px;
-        padding: 6px 10px;
+        gap: 6px 8px;
+        padding: 6px 8px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .uem-img {
-        max-height: 38px;
+        max-height: 32px;
     }
 
     .iccasa-img {
-        max-height: 48px;
+        max-height: 38px;
     }
 
     .scopus-badge {
-        font-size: 0.65rem;
-        padding: 4px 8px;
+        font-size: 0.6rem;
+        padding: 4px 6px;
+    }
+
+    .logo-group.jangjeon-group .header-logo,
+    .logo-group.AIP-Publishing .header-logo {
+        max-height: 38px;
+        padding: 2px 5px;
     }
 
     /* About section stacking */
@@ -1341,7 +1358,7 @@ body.no-scroll {
         justify-content: center;
     }
 
-    /* Team rows → compact cards on mobile */
+    /* Team rows â†’ compact cards on mobile */
     .team-row {
         flex-direction: column;
         gap: 4px;
@@ -1579,7 +1596,7 @@ body.no-scroll {
 }
 
 .bullet-heading::before {
-    content: "•";
+    content: "â€¢";
     color: var(--text-dark, #2d2d2d);
     font-size: 1.8rem;
     margin-right: 12px;
