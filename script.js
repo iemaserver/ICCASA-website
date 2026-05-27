@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { href: "speakers.html", label: "Keynote Speaker" },
       { href: "team.html", label: "Organizing Team" },
       { href: "callforpapers.html", label: "Call for Papers" },
-      { href: "comingsoon.html", label: "Registration" },
+      { href: "registration.html", label: "Registration" },
       { href: "publication.html", label: "Publication" },
 
       { href: "#contact", label: "Contact Us" },

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details | ICCASA 2026</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="site-header"></div>
+    <div id="site-nav"></div>
+
+    <main class="container page-layout">
+        <div class="page-content-wrapper cfp-card" style="margin-top: 50px;">
+            
+            <div class="section-header" style="margin-bottom: 40px;">
+                <h2>Payment Details</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="payment-container">
+                
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <h3>Bank Transfer (NEFT/RTGS/Wire)</h3>
+                    </div>
+                    <div class="payment-card-body">
+                        <table class="bank-details-table">
+                            <tbody>
+                                <tr>
+                                    <th>Name of Bank</th>
+                                    <td>Indian Overseas Bank</td>
+                                </tr>
+                                <tr>
+                                    <th>Branch</th>
+                                    <td>Salt lake, Sector –V, Kolkata</td>
+                                </tr>
+                                <tr>
+                                    <th>Account Holder</th>
+                                    <td>University of Engineering & Management, Jaipur</td>
+                                </tr>
+                                <tr>
+                                    <th>A/c No.</th>
+                                    <td class="highlight-text">164201000001161</td>
+                                </tr>
+                                <tr>
+                                    <th>IFSC Code</th>
+                                    <td class="highlight-text">IOBA0001642</td>
+                                </tr>
+                                <tr>
+                                    <th>Account Type</th>
+                                    <td>Saving</td>
+                                </tr>
+                                <tr>
+                                    <th>Swift Code</th>
+                                    <td>IOBAINBB893</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-card-header qr-header">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <h3>Scan to Pay (UPI)</h3>
+                    </div>
+                    <div class="payment-card-body qr-body">
+                        <div class="qr-scanner-frame">
+                            <img src="assets/images/qr-code.png" alt="UEM Jaipur UPI QR Code" class="enlarged-qr">
+                        </div>
+                        
+                        <div class="upi-details">
+                            <p><strong>UEM JAIPUR</strong></p>
+                            <p class="upi-id-box">UPI ID: <strong>9830954423@iob</strong></p>
+                            <div class="upi-logos">
+                                <span style="font-weight: 800; color: #444; letter-spacing: 1px;">BHIM | UPI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="payment-notice">
+                <p><i class="fa-solid fa-circle-info"></i> <strong>Important:</strong> After making the payment, please keep a copy of your transaction receipt/screenshot. You will need to upload this document or provide the transaction ID during the final registration process.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+</body>
+</html>
