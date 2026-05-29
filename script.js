@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navItems = [
       { href: "index.html", label: "Home" },
       { href: "scope.html", label: "Scope" },
-      { href: "speakers.html", label: "Keynote Speaker" },
+      { href: "speakers.html", label: "Keynote Speakers" },
       { href: "team.html", label: "Organizing Team" },
       { href: "callforpapers.html", label: "Call for Papers" },
       { href: "registration.html", label: "Registration" },
